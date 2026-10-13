@@ -18,18 +18,18 @@ This analysis is scoped to identifying **where** delivery problems are worst —
 
 ## Dashboard
 
-4-visual Power BI dashboard, connected live to PostgreSQL:
+4-visual Power BI dashboard, built on PostgreSQL views (Import mode, refreshed from a local PostgreSQL instance):
 1. Late delivery rate by state
 2. Late delivery rate by product category
 3. Late rate vs. average review score by state (combo chart)
 4. Worst-performing category per state (high-volume states only)
 
-See `dashboard_screenshot.png` for a preview, or open `Olist_Delivery_Dashboard.pbix` in Power BI Desktop (requires a live connection to a local PostgreSQL instance with the Olist dataset loaded — see Setup below).
+See `dashboard_screenshot.png` for a preview, or open `Olist_Delivery_Dashboard.pbix` in Power BI Desktop (requires a local PostgreSQL instance with the Olist dataset loaded to refresh the data — see Setup below).
 
 ## Tools & Techniques
 
 - **PostgreSQL**: joins across orders, customers, products, sellers, and reviews tables; `CASE WHEN` conditional flagging; `GROUP BY` aggregations; `HAVING` filters; `CORR()` statistical correlation; window functions (`RANK() OVER (PARTITION BY ... ORDER BY ...)`); SQL views (`CREATE VIEW`) as the data layer for Power BI
-- **Power BI**: live PostgreSQL connection (Import mode), clustered bar charts, combo (line + column) charts, table visuals
+- **Power BI**: PostgreSQL connection (Import mode), clustered bar charts, combo (line + column) charts, table visuals
 
 ## Dataset
 
